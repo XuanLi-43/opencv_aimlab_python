@@ -11,8 +11,8 @@ from ctypes import windll
 from pynput import keyboard
 
 # 初始化 dxcam
-camera = dxcam.create(output_idx=0)  # 默认第一个显示器
-camera.start(target_fps=120)
+camera = dxcam.create(output_idx=0)  
+camera.start(target_fps=90)
 
 # 常量定义
 AIMLAB_WINDOW_NAME = "aimlab_tb"  
@@ -168,7 +168,7 @@ def refine_position(image, center_x, center_y):
 
 def calculate_position(template_img_gray, screenshot_gray, width):
     """模板匹配查找目标位置"""
-    scale_min, scale_max = 0.3, 1.2  # 优化小目标缩放范围
+    scale_min, scale_max = 0.3, 1.2  
     max_val = 0.0
     best_center_x, best_center_y = None, None
     
@@ -212,3 +212,4 @@ def get_center_point(rect):
 #         print(f"平滑鼠标移动: ({dx * DPI_ZOOM}, {dy * DPI_ZOOM})")
 #     except Exception as e:
 #         print(f"鼠标移动失败: {e}")
+
